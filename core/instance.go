@@ -298,15 +298,15 @@ func (i *instance) getCheapestCompatibleSpotInstanceType(allowedList []string, d
 
 		candidatePrice := i.calculatePrice(candidate)
 
-		if i.isPriceCompatible(candidatePrice, bestPrice) &&
-			i.isEBSCompatible(candidate) &&
-			i.isClassCompatible(candidate) &&
-			i.isStorageCompatible(candidate, attachedVolumesNumber) &&
-			i.isVirtualizationCompatible(candidate.virtualizationTypes) &&
-			i.isAllowed(candidate.instanceType, allowedList, disallowedList) {
-			bestPrice = candidatePrice
-			chosenSpotType = candidate.instanceType
-			cheapest = candidate
+    if i.isPriceCompatible(candidatePrice, bestPrice) {
+			//i.isEBSCompatible(candidate) &&
+			//i.isClassCompatible(candidate) &&
+			//i.isStorageCompatible(candidate, attachedVolumesNumber) &&
+			//i.isVirtualizationCompatible(candidate.virtualizationTypes) &&
+			//i.isAllowed(candidate.instanceType, allowedList, disallowedList) {
+			//bestPrice = candidatePrice
+			//chosenSpotType = candidate.instanceType
+			//cheapest = candidate
 			debug.Println("Best option is now: ", chosenSpotType, " at ", bestPrice)
 		} else if chosenSpotType != "" {
 			debug.Println("Current best option: ", chosenSpotType, " at ", bestPrice)
